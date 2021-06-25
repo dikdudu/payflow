@@ -44,9 +44,21 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
           ),
         ],
       ),
-      bottomNavigationBar: LabelButton(
-        label: "Inserir código do boleto",
-        onPressed: () {},
+      bottomNavigationBar: Row(
+        children: [
+          Expanded(
+            child: LabelButton(
+              label: "Inserir código do boleto",
+              onPressed: () {},
+            ),
+          ),
+          Expanded(
+            child: LabelButton(
+              label: "Adicionar da galeria",
+              onPressed: () {},
+            ),
+          ),
+        ],
       ),
     );
   }
