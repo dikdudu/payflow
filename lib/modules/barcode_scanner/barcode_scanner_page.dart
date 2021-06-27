@@ -13,38 +13,47 @@ class BarcodeScannerPage extends StatefulWidget {
 class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Escaneia o código de barras do boleto",
-          style: AppTextStyles.buttonBackground,
+    return RotatedBox(
+      quarterTurns: 1,
+      child:SafeArea(
+      top: true,
+      bottom: true,
+      right: true,
+      left: true,
+          child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.black,
+          title: Text(
+            "Escaneia o código de barras do boleto",
+            style: AppTextStyles.buttonBackground,
+          ),
+          leading: BackButton(
+            color: AppColors.background,
+          ),
         ),
-        leading: BackButton(
-          color: AppColors.background,
+        body: Column(
+          children: [
+            Expanded(
+              child: Container(
+                color: Colors.black,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.transparent,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: Colors.black,
+              ),
+            ),
+          ],
         ),
+        bottomNavigationBar: SetLabelButton(primaryLabel: "Inserir código do boleto",primaryOnPressed: (){},secudaryLabel: "Adicionar da galeria",secudaryOnPressed: (){},),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              color: Colors.black,
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.transparent,
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: SetLabelButton(primaryLabel: "Inserir código do boleto",primaryOnPressed: (){},secudaryLabel: "Adicionar da galeria",secudaryOnPressed: (){},),
-    );
+    ),);
   }
 }
